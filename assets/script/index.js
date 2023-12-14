@@ -33,7 +33,7 @@ function addMarker(coordinates) {
 function getLocation(position) {
     let { latitude, longitude } = position.coords;
     userLocation = [longitude, latitude];
-    map.flyTo({ center: userLocation, zoom: 14 });
+    map.flyTo({ center: userLocation, zoom: 17 });
     addMarker(userLocation);
 }
 
