@@ -1,5 +1,5 @@
 'use strict';
-import { select } from './utils.js';
+// import { select } from './utils.js';
 
 mapboxgl.accessToken = 'pk.eyJ1IjoibWNndWVuZXR0ZSIsImEiOiJjbHExOWUxeWcwNmwyMmlvMGY3NXF3bGc4In0.SXaq4QutArp0bqPMpmnkjg';
 
@@ -11,7 +11,6 @@ const map = new mapboxgl.Map({
     pitch: 40
 });
 
-const trackButton = select('#tracking');
 let userLocation;
 
 function addMarker(coordinates) {
@@ -48,27 +47,26 @@ const options = {
 
 setTimeout(() => {
     if ('geolocation' in navigator) {
-        navigator.geolocation.watchPosition(getLocation, errorHandler, options);
+        navigator.geolocation.getCurrentPosition(getLocation, errorHandler, options);
     } else {
         alert('Browser does not support geolocation');
     }
 }, 1000);
 
+
+map.dragPan.disable();
+map.keyboard.disable();
+map.scrollZoom.disable();
+map.doubleClickZoom.disable();
+map.touchZoomRotate.disable();
+
 map.addControl(
     new mapboxgl.GeolocateControl({
         positionOptions: {
-            enableHighAccuracy: true
+            enableHighAccuracy: true,
+            maximumAge: 0
         },
         trackUserLocation: true,
         showUserHeading: true
     })
 );
-
-// Event listener for the tracking button
-trackButton.addEventListener('click', () => {
-    if ('geolocation' in navigator) {
-        navigator.geolocation.getCurrentPosition(getLocation, errorHandler, options);
-    } else {
-        alert('Browser does not support geolocation');
-    }
-});
