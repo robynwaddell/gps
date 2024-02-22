@@ -1,7 +1,7 @@
 'use strict';
 // import { select } from './utils.js';
 
-mapboxgl.accessToken = 'pk.eyJ1IjoibWNndWVuZXR0ZSIsImEiOiJjbHExOWUxeWcwNmwyMmlvMGY3NXF3bGc4In0.SXaq4QutArp0bqPMpmnkjg';
+mapboxgl.accessToken = 'pk.eyJ1Ijoicm9ieW53YWRkZWxsIiwiYSI6ImNsc3hveXFycDA1NHYyaW53ODNybnBrdXQifQ.qrPNPNrPLr3YAlYrPTYfzw';
 
 const map = new mapboxgl.Map({
     container: 'map',
@@ -16,7 +16,7 @@ let userLocation;
 function addMarker(coordinates) {
     // Grabbed from: https://docs.mapbox.com/mapbox-gl-js/api/markers/#marker-example
     let marker = new mapboxgl.Marker({
-        color: "#860D0D",
+        color: "#02A9F7",
         width: '10px',
         height: '10px',
         draggable: false
