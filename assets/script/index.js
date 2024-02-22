@@ -19,7 +19,7 @@ function addMarker(coordinates) {
         color: "#02A9F7",
         width: '10px',
         height: '10px',
-        draggable: false
+        draggable: true
         }).setLngLat(coordinates)
         .addTo(map);
     // const el = document.createElement('div');
